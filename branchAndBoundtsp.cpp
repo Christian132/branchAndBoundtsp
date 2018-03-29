@@ -314,9 +314,10 @@ int main(){
       bigGraph[i].resize(numVertBigGraph);
   }
   int randVal = 0;
+  // Create the graph with edges of random cost with a given bound
   for(int i = 0; i<numVertBigGraph;i++){
       for(int j = 0; j<numVertBigGraph;j++){
-          randVal = rand()%15;
+          randVal = rand()%15; // Mod with the max cost of an edge
           if (i == j)
               bigGraph[i][j] = 0;
           else
