@@ -37,13 +37,16 @@ struct CompPathDes{
 
 // Function to help compare values in the pathDesription struct for the prio queue
 bool pathDesriptionCompare(pathDescription compVal1, pathDescription compVal2);
+
 // Function adds an edge in both direction implying UNDIRECTED graph
 std::vector<std::vector<int>> add_edge(std::vector<std::vector<int> > graph, int startVertex, int endVertex, int edgeWeight);
 
 // Delete an edge from being used
 std::vector<std::vector<int>> del_edge(std::vector<std::vector<int> > graph, int startVertex, int endVertex);
+
 // Delete the remaining edges that cannot be used (if a vertex have two edges in use already)
 std::vector<std::vector<int>> del_leftover_edges(std::vector<std::vector<int> > graph, int startVertex, int endVertex1, int endVertex2);
+
 // Function assumes at least two edges for a vertex. Returns the lower bound for a given graph
 double find_lower_bound(std::vector<std::vector<int>> graph);
 
@@ -56,14 +59,17 @@ std::vector<std::vector<int>> visit_edge(std::vector<std::vector<int>> edgeVisit
 // Check for a finished path - meaning if EVERY vertex has to visited edges (condition to be done)
 bool check_for_finished_path(std::vector<std::vector<int>> usedEdges);
 
-
+// Print the path through the graph that takes the least costly route
 void print_finished_path(std::vector<std::vector<int>> finishedPath);
 
+// Return the final cost of the finished route through
 int final_path_cost(std::vector<std::vector<int>> finishedPath, std::vector<std::vector<int>> graph);
 
+// This function will try to find the shortest path in a graph given. It will use the branch-and-bound method,
+// meaning it will ignore possible solutions that are not a good solution
 void find_shortest_path(std::vector<std::vector<int>> graph);
 
-// Check if there is a circle in the visited set
+// Check if there is a premature circle in the graph. Returns true for a premature circle
 bool check_for_circle(std::vector<std::vector<int>> usedEdges);
 
 
